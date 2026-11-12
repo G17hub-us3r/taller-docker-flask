@@ -19,7 +19,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicio Web - Alvaro</title>
+    <title>Servicio Web - Alvaro (v2)</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -39,20 +39,34 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             text-align: center;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             border: 1px solid #334155;
-            max-width: 480px;
+            max-width: 500px;
             width: 100%;
             position: relative;
         }
         .badge {
-            background: #0284c7;
+            background: #10b981;
             color: #ffffff;
             padding: 0.35rem 0.9rem;
             border-radius: 9999px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
             margin-bottom: 1.2rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .yavirac-banner {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            border: 1px solid #38bdf8;
+            border-radius: 0.85rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+        }
+        .yavirac-banner h2 {
+            font-size: 1.45rem;
+            color: #ffffff;
+            font-weight: 800;
             letter-spacing: 0.5px;
         }
         h1 {
@@ -165,7 +179,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <div class="card">
-        <span class="badge">Docker Engine • v1</span>
+        <span class="badge">Docker Engine • Versión 2.0</span>
+        
+        <div class="yavirac-banner">
+            <h2>🎓 Yo estudio en Yavirac</h2>
+        </div>
+
         <h1>¡Hola, Alvaro! 👋</h1>
         <p class="subtitle">Microservicio en Python 3.12 con Flask y Edge-TTS</p>
         
@@ -204,7 +223,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         const voiceSelect = document.getElementById('voiceSelect');
         const statusMsg = document.getElementById('statusMsg');
 
-        const COOLDOWN_DURATION_MS = 60 * 1000; // 1 minute cooldown for autoplay
+        const COOLDOWN_DURATION_MS = 60 * 1000;
         const KEY_LAST_PLAYED = 'last_played_timestamp';
         const KEY_PREFERRED_VOICE = 'preferred_voice';
         let retryTimeout = null;
@@ -346,7 +365,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 async def generate_speech_audio(voice_name: str) -> bytes:
     communicator = edge_tts.Communicate(
-        text="¡Hola Alvaro! Bienvenido a tu aplicación web.",
+        text="¡Hola Alvaro! Bienvenido a tu aplicación web. Yo estudio en Yavirac.",
         voice=voice_name
     )
     audio_buffer = bytearray()
